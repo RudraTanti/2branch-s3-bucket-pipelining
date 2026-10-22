@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All-in-One Style Preview</title>
+    <style>
+        /* BASE & LAYOUT CONFIG */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; font-family: sans-serif; transition: all 0.3s ease; }
+        
+        /* THEME SWITCHER BAR */
+        .switcher { position: fixed; top: 20px; display: flex; gap: 10px; background: rgba(0,0,0,0.1); padding: 8px; border-radius: 30px; z-index: 100; backdrop-filter: blur(5px); }
+        .switcher button { border: none; padding: 8px 16px; border-radius: 20px; cursor: pointer; font-weight: bold; font-size: 12px; transition: all 0.2s; }
+
+        /* style 1: MINIMAL DARK */
+        body.theme-dark { background: #121212; color: #e0e0e0; }
+        body.theme-dark .card { background: #1e1e1e; border: 1px solid #333; border-radius: 8px; padding: 30px; width: 320px; text-align: center; }
+        body.theme-dark h1 { color: #fff; font-size: 24px; margin-bottom: 10px; }
+        body.theme-dark p { color: #a0a0a0; font-size: 14px; margin-bottom: 20px; line-height: 1.5; }
+        body.theme-dark .btn { display: inline-block; background: #fff; color: #121212; text-decoration: none; padding: 10px 20px; border-radius: 4px; font-weight: 600; }
+
+        /* style 2: CYBERPUNK */
+        body.theme-cyber { background: linear-gradient(135deg, #f107a3, #7b2ff7); font-family: 'Courier New', monospace; }
+        body.theme-cyber .card { background: #000; border: 2px solid #00f3ff; padding: 30px; width: 320px; text-align: center; box-shadow: 5px 5px 0 #00f3ff; }
+        body.theme-cyber h1 { color: #00f3ff; font-size: 26px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+        body.theme-cyber p { color: #fff; font-size: 13px; margin-bottom: 20px; }
+        body.theme-cyber .btn { display: inline-block; background: #ff007f; color: #fff; text-decoration: none; padding: 10px 20px; text-transform: uppercase; font-weight: bold; border: 1px solid #fff; }
+
+        /* style 3: GLASSMORPHISM */
+        body.theme-glass { background: linear-gradient(45deg, #ff9a9e, #fecfef); }
+        body.theme-glass .card { background: rgba(255,255,255,0.45); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.25); border-radius: 24px; padding: 30px; width: 320px; text-align: center; box-shadow: 0 8px 32px rgba(31,38,135,0.1); }
+        body.theme-glass h1 { color: #4a4a4a; font-size: 22px; margin-bottom: 10px; }
+        body.theme-glass p { color: #616161; font-size: 14px; margin-bottom: 20px; line-height: 1.5; }
+        body.theme-glass .btn { display: inline-block; background: linear-gradient(to right, #ff758c, #ff7eb3); color: #fff; text-decoration: none; padding: 10px 24px; border-radius: 50px; box-shadow: 0 4px 15px rgba(255,117,140,0.4); }
+    </style>
+</head>
+<body class="theme-dark">
+
+    <!-- Theme Switcher Navigation -->
+    <div class="switcher">
+        <button onclick="setTheme('dark')">Dark</button>
+        <button onclick="setTheme('cyber')">Cyber</button>
+        <button onclick="setTheme('glass')">Glass</button>
+    </div>
+
+    <!-- The Content Card -->
+    <div class="card">
+        <h1>Hello World</h1>
+        <p>This single component transforms instantly depending on the active stylesheet rule setup above.</p>
+        <a href="#" class="btn">Explore</a>
+    </div>
+
+    <!-- Switcher Logic -->
+    <script>
+        function setTheme(themeName) {
+            document.body.className = 'theme-' + themeName;
+        }
+    </script>
+</body>
+</html>
